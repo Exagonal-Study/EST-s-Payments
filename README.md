@@ -88,7 +88,7 @@
 - `입출금 이력(transactionHisotry)`으로 `잔액 정보(balance)`를 계산한다.
 - `계좌 번호(AccountNumber)`는 10자리로 구성되어있다.
 - `잔액 정보(balance)`는 0 이상이어야 한다.
-- `송금 이력(transferHistories)` 에는 `송금한 계좌(sourceAccount)`, `송금받은 계좌(targetAccount)`, `송금한 돈의 수량(transferMoney)`, `송금한 일자(transferDate)`가 포함된다.
+- `송금 이력(transferHistories)` 에는 `송금한 계좌(sourceAccountNumber)`, `송금받은 계좌(targetAccountNumber)`, `송금한 돈의 수량(transferMoney)`, `송금한 일자(transferDate)`가 포함된다.
 
 ### 돈(Money)
 
@@ -129,8 +129,8 @@ classDiagram
     }
 
     class TransferHistory {
-        - Account sourceAccount
-        - Account targetAccount
+        - AccountNumber sourceAccountNumber
+        - AccountNumber targetAccountNumber
         - Money transferMoney
         - TransferDate transferDate
     }
@@ -149,7 +149,7 @@ classDiagram
     Transfer *-- Money
     Transfer *-- Account
     TransferHistory *-- Money
-    TransferHistory *-- Account
+    TransferHistory *-- AccountNumber
 ```
 
 ## erd
@@ -158,8 +158,8 @@ classDiagram
 erDiagram
     transfer_history {
       id long pk
-      source_account_id long fk
-      target_account_id long fk
+      source_account_number varchar(200)
+      target_account_number varchar(200)
       transfer_money int
       trasfer_date date
     }
