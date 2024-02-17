@@ -146,4 +146,9 @@ gradle-app.setting
 
 .jqwik-database
 
+# out package exclusion
+
+!src/main/kotlin/com/example/estdelivery/application/port/out
+!src/test/kotlin/com/example/estdelivery/application/port/out
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,gradle,kotlin
