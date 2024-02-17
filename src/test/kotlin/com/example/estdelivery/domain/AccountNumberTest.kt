@@ -11,12 +11,6 @@ import io.kotest.core.spec.style.FreeSpec
 import net.jqwik.api.Arbitraries
 
 class AccountNumberTest : FreeSpec({
-    val fixtureMonkey = FixtureMonkey.builder()
-        .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
-        .plugin(KotlinPlugin())
-        .plugin(JakartaValidationPlugin())
-        .build()
-
     "계좌 번호를 생성 할 때" - {
         "10자리 임의 번호를 생성해" - {
             for (i in 0..300) {

@@ -14,12 +14,6 @@ import net.jqwik.api.Arbitraries
 import java.math.BigInteger
 
 class MoneyTest : FreeSpec({
-    val fixtureMonkey = FixtureMonkey.builder()
-        .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
-        .plugin(KotlinPlugin())
-        .plugin(JakartaValidationPlugin())
-        .build()
-
     "0이상의 숫자를 넣어" - {
         for (i in 0..300) {
             "$i 번째 금액을 생성한다." {

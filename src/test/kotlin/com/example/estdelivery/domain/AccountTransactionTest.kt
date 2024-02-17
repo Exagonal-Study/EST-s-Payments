@@ -10,12 +10,6 @@ import io.kotest.core.spec.style.FreeSpec
 import java.time.LocalDateTime
 
 class AccountTransactionTest : FreeSpec({
-    val fixtureMonkey = FixtureMonkey.builder()
-        .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
-        .plugin(KotlinPlugin())
-        .plugin(JakartaValidationPlugin())
-        .build()
-
     "계좌 거래 내역을 생성한다." - {
         for (i in 0..300) {
             "$i 번째 거래 내역을 생성한다." {

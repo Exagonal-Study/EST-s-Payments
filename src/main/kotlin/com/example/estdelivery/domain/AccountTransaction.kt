@@ -7,5 +7,5 @@ data class AccountTransaction(
     val amount: Money,
     val type: TransactionType,
     @field:PastOrPresent
-    private val transactionDateTime: LocalDateTime,
+    val transactionDateTime: LocalDateTime,
 )

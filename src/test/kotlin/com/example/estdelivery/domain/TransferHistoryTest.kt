@@ -12,12 +12,6 @@ import io.kotest.matchers.shouldBe
 import java.time.LocalDateTime
 
 class TransferHistoryTest : FreeSpec({
-    val fixtureMonkey = FixtureMonkey.builder()
-        .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
-        .plugin(KotlinPlugin())
-        .plugin(JakartaValidationPlugin())
-        .build()
-
     "300번 중" - {
         for (i in 0..300) {
             "$i 번째 송금 내역을 생성한다." {

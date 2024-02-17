@@ -12,12 +12,6 @@ import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 
 class TransferHistoriesTest : FreeSpec({
-    val fixtureMonkey = FixtureMonkey.builder()
-        .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
-        .plugin(KotlinPlugin())
-        .plugin(JakartaValidationPlugin())
-        .build()
-
     "이체 내역을 생성한다." {
         val list = fixtureMonkey.giveMeBuilder<List<TransferHistory>>().sample()
 

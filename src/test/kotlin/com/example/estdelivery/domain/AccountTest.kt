@@ -12,12 +12,6 @@ import io.kotest.core.spec.style.FreeSpec
 import java.time.LocalDateTime
 
 class AccountTest : FreeSpec({
-    val fixtureMonkey = FixtureMonkey.builder()
-        .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
-        .plugin(KotlinPlugin())
-        .plugin(JakartaValidationPlugin())
-        .build()
-
     fun transferHistories(myAccount: AccountNumber): TransferHistories {
         val 계좌_과거_이력 = TransferHistories(listOf())
         for (i in 0..10) {
