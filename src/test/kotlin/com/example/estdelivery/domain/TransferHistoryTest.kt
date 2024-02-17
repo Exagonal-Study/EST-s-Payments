@@ -37,15 +37,10 @@ class TransferHistoryTest : FreeSpec({
 
     "이체 일자는 현재 시간보다 이전이어야 한다." {
         val futureDateTime = LocalDateTime.now().plusDays(1)
-        val money = fixtureMonkey.giveMeBuilder<Money>().sample()
-
         shouldThrow<IllegalArgumentException> {
-            TransferHistory(
-                fixtureMonkey.giveMeBuilder<AccountNumber>().sample(),
-                fixtureMonkey.giveMeBuilder<AccountNumber>().sample(),
-                money,
-                futureDateTime
-            )
+            fixtureMonkey.giveMeBuilder<TransferHistory>()
+                .set("transferDate", futureDateTime)
+                .sample()
         }
     }
 })

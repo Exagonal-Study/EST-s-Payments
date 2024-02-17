@@ -15,15 +15,6 @@ class TransferHistories(
         transferHistories = transferHistories - transferHistory
     }
 
-    fun ensureMyHistories(number: AccountNumber): Boolean {
-        for (transferHistory in transferHistories) {
-            if (transferHistory.isMyHistory(number).not()) {
-                return false
-            }
-        }
-        return true
-    }
-
     override fun toString(): String {
         return "TransferHistories(transferHistories=$transferHistories)"
     }

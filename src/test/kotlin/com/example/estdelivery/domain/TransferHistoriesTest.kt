@@ -50,25 +50,4 @@ class TransferHistoriesTest : FreeSpec({
             }
         }
     }
-
-    "자신의 계좌를 확인할 때" - {
-        "경계값 - 비어있어도 자신의 계좌이다." {
-            val histories = TransferHistories(listOf())
-            val number = fixtureMonkey.giveMeBuilder<AccountNumber>().sample()
-            histories.ensureMyHistories(number) shouldBe true
-        }
-
-        "이력으로 자신의 계좌를 확인할 수 있다." {
-            val sourceAccountNumber = fixtureMonkey.giveMeBuilder<AccountNumber>().sample()
-            val histories = TransferHistories(listOf())
-            for (i in 0..100) {
-                val transferHistory = fixtureMonkey.giveMeBuilder<TransferHistory>()
-                    .set("source", sourceAccountNumber)
-                    .sample()
-                histories.addHistory(transferHistory)
-            }
-            histories.ensureMyHistories(sourceAccountNumber) shouldBe true
-        }
-    }
-
 })

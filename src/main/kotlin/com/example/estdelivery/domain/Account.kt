@@ -5,14 +5,14 @@ import java.time.LocalDateTime
 
 class Account(
     private val number: AccountNumber,
-    private val balance: Money,
     private val transferHistories: TransferHistories,
+    private val transactions: AccountTransactions,
     @field:PastOrPresent
     private val createdDate: LocalDateTime,
     private val id: Long? = null
 ) {
-    init {
-        require(transferHistories.ensureMyHistories(number)) { "자신의 이력이 아닌 정보가 존재합니다." }
+    fun balance(): Money {
+        return transactions.balance()
     }
 
     override fun equals(other: Any?): Boolean {
@@ -29,6 +29,10 @@ class Account(
     }
 
     override fun toString(): String {
-        return "Account(number=$number, balance=$balance, transferHistories=$transferHistories, createdDate=$createdDate, id=$id)"
+        return "Account(number=$number, balance=${balance()}, transferHistories=$transferHistories, createdDate=$createdDate, id=$id)"
+    }
+
+    fun deposit(amount: Money, transactionTime: LocalDateTime) {
+        transactions.deposit(amount, transactionTime)
     }
 }
