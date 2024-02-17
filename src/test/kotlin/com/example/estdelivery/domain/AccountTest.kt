@@ -7,6 +7,7 @@ import com.navercorp.fixturemonkey.api.property.PropertyNameResolver
 import com.navercorp.fixturemonkey.jakarta.validation.plugin.JakartaValidationPlugin
 import com.navercorp.fixturemonkey.kotlin.KotlinPlugin
 import com.navercorp.fixturemonkey.kotlin.giveMeBuilder
+import io.kotest.assertions.throwables.shouldNotThrow
 import io.kotest.core.spec.style.FreeSpec
 import java.time.LocalDateTime
 
@@ -39,10 +40,11 @@ class AccountTest : FreeSpec({
         val 계좌_과거_이력 = transferHistories(내_계좌)
         for (i in 0..10) {
             "$i 번째 계좌를 생성한다." {
-                val giveMeBuilder = fixtureMonkey.giveMeBuilder<Account>()
-                    .set("number", 내_계좌)
-                    .set("transferHistories", 계좌_과거_이력)
-                println(giveMeBuilder.sample())
+                shouldNotThrow<IllegalArgumentException> {
+                    fixtureMonkey.giveMeBuilder<Account>()
+                        .set("number", 내_계좌)
+                        .set("transferHistories", 계좌_과거_이력)
+                }
             }
         }
     }

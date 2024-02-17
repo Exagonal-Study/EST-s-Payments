@@ -18,7 +18,7 @@ class TransferHistoryTest : FreeSpec({
         .plugin(JakartaValidationPlugin())
         .build()
 
-    "300 번 중" - {
+    "300번 중" - {
         for (i in 0..300) {
             "$i 번째 송금 내역을 생성한다." {
                 println(fixtureMonkey.giveMeBuilder<TransferHistory>().sample())
@@ -26,7 +26,7 @@ class TransferHistoryTest : FreeSpec({
         }
     }
 
-    "입급 계좌와 출급 계좌가 같을 수 없다." {
+    "입금 계좌와 출금 계좌가 같을 수 없다." {
         val sameAccountNumber = fixtureMonkey.giveMeBuilder<AccountNumber>().sample()
         val money = fixtureMonkey.giveMeBuilder<Money>().sample()
 
