@@ -35,4 +35,8 @@ class Account(
     fun deposit(amount: Money, transactionTime: LocalDateTime) {
         transactions.deposit(amount, transactionTime)
     }
+
+    fun withdraw(amount: Money, transactionTime: LocalDateTime) {
+        transactions.withdraw(amount, transactionTime)
+    }
 }
