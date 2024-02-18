@@ -8,5 +8,5 @@ interface WithdrawUseCase {
      *
      * @param command 출금 명령
      */
-    fun withdraw(command: WithdrawCommand)
+    fun withdraw(command: WithdrawCommand) : AccountResponse
 }

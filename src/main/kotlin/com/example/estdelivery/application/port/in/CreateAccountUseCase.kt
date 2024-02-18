@@ -5,7 +5,8 @@ import com.example.estdelivery.application.port.`in`.command.CreateAccountComman
 interface CreateAccountUseCase {
     /**
      * 계좌를 생성한다. 생성되는 계좌는 고유하며 잔액은 0원이다.
-     * @param createAccountCommand
+     *
+     * @param command
      */
-    fun createAccount(createAccountCommand: CreateAccountCommand)
+    fun createAccount(command: CreateAccountCommand)
 }

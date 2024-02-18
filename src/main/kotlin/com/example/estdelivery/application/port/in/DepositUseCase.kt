@@ -7,5 +7,5 @@ interface DepositUseCase {
      * 계좌에 돈을 입금한다.
      * @param command
      */
-    fun deposit(command: DepositCommand)
+    fun deposit(command: DepositCommand) : AccountResponse
 }

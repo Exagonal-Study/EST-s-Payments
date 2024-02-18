@@ -1,5 +1,6 @@
 package com.example.estdelivery.application
 
+import com.example.estdelivery.application.port.`in`.AccountResponse
 import com.example.estdelivery.application.port.`in`.DepositUseCase
 import com.example.estdelivery.application.port.`in`.command.DepositCommand
 import com.example.estdelivery.application.port.out.LoadAccountPort
@@ -19,10 +20,11 @@ class DepositService(
      *
      * @param command 입금 명령
      */
-    override fun deposit(command: DepositCommand) {
+    override fun deposit(command: DepositCommand): AccountResponse {
         val account = loadAccountPort.findByAccountNumber(command.accountNumber)
         val depositCommand = Deposit(account, command.amount, command.depositTime)
         depositCommand.deposit()
         updateAccountPort.update(account)
+        return AccountResponse(account.balance())
     }
 }

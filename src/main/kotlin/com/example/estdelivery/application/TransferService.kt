@@ -1,5 +1,6 @@
 package com.example.estdelivery.application
 
+import com.example.estdelivery.application.port.`in`.AccountResponse
 import com.example.estdelivery.application.port.`in`.TransferUseCase
 import com.example.estdelivery.application.port.`in`.command.TransferCommand
 import com.example.estdelivery.application.port.out.LoadAccountPort
@@ -19,11 +20,12 @@ class TransferService(
      *
      * @param command 이체 명령
      */
-    override fun transfer(command: TransferCommand) {
+    override fun transfer(command: TransferCommand): AccountResponse {
         val sourceAccount = loadAccountPort.findByAccountNumber(command.source)
         val targetAccount = loadAccountPort.findByAccountNumber(command.target)
         Transfer(sourceAccount, targetAccount, command.amount, command.transferTime).transfer()
         updateAccountPort.update(sourceAccount)
         updateAccountPort.update(targetAccount)
+        return AccountResponse(sourceAccount.balance())
     }
 }
