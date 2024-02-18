@@ -1,10 +1,6 @@
 package com.example.estdelivery.domain
 
-import com.navercorp.fixturemonkey.FixtureMonkey
-import com.navercorp.fixturemonkey.api.introspector.ConstructorPropertiesArbitraryIntrospector
-import com.navercorp.fixturemonkey.jakarta.validation.plugin.JakartaValidationPlugin
-import com.navercorp.fixturemonkey.kotlin.KotlinPlugin
-import com.navercorp.fixturemonkey.kotlin.giveMeBuilder
+import com.example.estdelivery.accountNumberArbitraryBuilder
 import io.kotest.assertions.throwables.shouldNotThrow
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.core.spec.style.FreeSpec
@@ -16,7 +12,7 @@ class AccountNumberTest : FreeSpec({
             for (i in 0..300) {
                 "$i 번째 계좌 번호를 생성한다." {
                     shouldNotThrow<IllegalArgumentException> {
-                        fixtureMonkey.giveMeBuilder<AccountNumber>().sample()
+                        accountNumberArbitraryBuilder().sample()
                     }
                 }
             }
@@ -29,7 +25,7 @@ class AccountNumberTest : FreeSpec({
                 val number = arbitrarily.sample()
                 "${number}로 생성하면 예외가 발생한다." {
                     shouldThrowAny {
-                        fixtureMonkey.giveMeBuilder<AccountNumber>().set("accountNumber", number).sample()
+                        accountNumberArbitraryBuilder().set("accountNumber", number).sample()
                     }
                 }
             }
@@ -42,7 +38,7 @@ class AccountNumberTest : FreeSpec({
                 val number = arbitrarily.sample()
                 "${number}로 생성하면 예외가 발생한다." {
                     shouldThrowAny {
-                        fixtureMonkey.giveMeBuilder<AccountNumber>().set("accountNumber", number).sample()
+                        accountNumberArbitraryBuilder().set("accountNumber", number).sample()
                     }
                 }
             }

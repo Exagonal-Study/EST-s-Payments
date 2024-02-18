@@ -1,17 +1,14 @@
 package com.example.estdelivery.domain
 
-import com.navercorp.fixturemonkey.FixtureMonkey
-import com.navercorp.fixturemonkey.api.introspector.ConstructorPropertiesArbitraryIntrospector
-import com.navercorp.fixturemonkey.jakarta.validation.plugin.JakartaValidationPlugin
-import com.navercorp.fixturemonkey.kotlin.KotlinPlugin
-import com.navercorp.fixturemonkey.kotlin.giveMeBuilder
+import com.example.estdelivery.accountTransactionsArbitraryBuilder
+import com.example.estdelivery.moneyArbitraryBuilder
 import io.kotest.assertions.throwables.shouldNotThrow
 import io.kotest.core.spec.style.FreeSpec
 import java.time.LocalDateTime
 
 class AccountTransactionsTest : FreeSpec({
-    val accountTransactions = fixtureMonkey.giveMeBuilder<AccountTransactions>().sample()
-    val money = fixtureMonkey.giveMeBuilder<Money>().sample()
+    val money = moneyArbitraryBuilder().sample()
+    val accountTransactions = accountTransactionsArbitraryBuilder().sample()
 
     "돈 입금 기록을 추가한다." {
         shouldNotThrow<IllegalArgumentException> {

@@ -1,7 +1,7 @@
 package com.example.estdelivery.domain
 
 class TransferHistories(
-    private var transferHistories: List<TransferHistory>
+    private var transferHistories: List<TransferHistory> = listOf()
 ) {
     fun showHistories(): List<TransferHistory> {
         return transferHistories

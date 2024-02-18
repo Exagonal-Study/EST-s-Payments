@@ -3,7 +3,7 @@ package com.example.estdelivery.domain
 import java.time.LocalDateTime
 
 class AccountTransactions(
-    private var accountTransactions: List<AccountTransaction>
+    private var accountTransactions: List<AccountTransaction> = listOf()
 ) {
     fun deposit(amount: Money, transactionTime: LocalDateTime) {
         accountTransactions = accountTransactions + AccountTransaction(amount, TransactionType.DEPOSIT, transactionTime)

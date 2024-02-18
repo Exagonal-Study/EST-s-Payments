@@ -1,4 +1,7 @@
 package com.example.estdelivery.application.port.out
 
-class LoadAccountPort {
+import com.example.estdelivery.domain.AccountNumber
+
+interface LoadAccountPort {
+    fun existsByAccountNumber(accountNumber: AccountNumber): Boolean
 }
