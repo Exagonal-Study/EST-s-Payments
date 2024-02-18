@@ -1,0 +1,11 @@
+### 계좌 생성
+POST {{host}}/accounts
+Content-Type: application/json
+
+{
+  "userId": 1
+}
+
+### 계좌 조회
+GET {{host}}/accounts/1
+Content-Type: application/json
