@@ -15,7 +15,5 @@ class TransferHistories(
         transferHistories = transferHistories - transferHistory
     }
 
-    override fun toString(): String {
-        return "TransferHistories(transferHistories=$transferHistories)"
-    }
+    override fun toString() = "TransferHistories(transferHistories=$transferHistories)"
 }

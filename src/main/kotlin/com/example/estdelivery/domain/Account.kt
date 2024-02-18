@@ -11,9 +11,7 @@ class Account(
     private val createdDate: LocalDateTime,
     val id: Long? = null
 ) {
-    fun balance(): Money {
-        return transactions.balance()
-    }
+    fun balance() = transactions.balance()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -24,13 +22,10 @@ class Account(
         return id == other.id
     }
 
-    override fun hashCode(): Int {
-        return id?.hashCode() ?: 0
-    }
+    override fun hashCode() = id?.hashCode() ?: 0
 
-    override fun toString(): String {
-        return "Account(number=$number, balance=${balance()}, transferHistories=$transferHistories, createdDate=$createdDate, id=$id)"
-    }
+    override fun toString() =
+        "Account(number=$number, balance=${balance()}, transferHistories=$transferHistories, createdDate=$createdDate, id=$id)"
 
     fun deposit(amount: Money, transactionTime: LocalDateTime) {
         transactions.deposit(amount, transactionTime)

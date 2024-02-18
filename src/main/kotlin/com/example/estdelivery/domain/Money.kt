@@ -15,15 +15,9 @@ data class Money(
         val ZERO: Money = Money(BigInteger.ZERO)
     }
 
-    operator fun plus(amount: Money): Money {
-        return Money(this.amount.add(amount.amount))
-    }
+    operator fun plus(amount: Money) = Money(this.amount.add(amount.amount))
 
-    operator fun minus(amount: Money): Money {
-        return Money(this.amount.subtract(amount.amount))
-    }
+    operator fun minus(amount: Money) = Money(this.amount.subtract(amount.amount))
 
-    operator fun compareTo(amount: Money): Int {
-        return this.amount.compareTo(amount.amount)
-    }
+    operator fun compareTo(amount: Money) = this.amount.compareTo(amount.amount)
 }

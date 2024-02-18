@@ -14,17 +14,13 @@ class AccountTransactions(
             accountTransactions + AccountTransaction(amount, TransactionType.WITHDRAWAL, transactionTime)
     }
 
-    fun balance(): Money {
-        return accountTransactions.sortedBy { it.transactionDateTime }
-            .fold(Money.ZERO) { acc, accountTransaction ->
-                when (accountTransaction.type) {
-                    TransactionType.DEPOSIT -> acc + accountTransaction.amount
-                    TransactionType.WITHDRAWAL -> acc - accountTransaction.amount
-                }
+    fun balance() = accountTransactions.sortedBy { it.transactionDateTime }
+        .fold(Money.ZERO) { acc, accountTransaction ->
+            when (accountTransaction.type) {
+                TransactionType.DEPOSIT -> acc + accountTransaction.amount
+                TransactionType.WITHDRAWAL -> acc - accountTransaction.amount
             }
-    }
+        }
 
-    fun showTransactions(): List<AccountTransaction> {
-        return accountTransactions
-    }
+    fun showTransactions() = accountTransactions
 }
