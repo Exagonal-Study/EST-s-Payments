@@ -45,7 +45,7 @@ private fun fromAccountTransactionEntity(it: AccountTransactionEntity) =
 
 private fun toTransferHistoryEntity(it: TransferHistory) =
     TransferHistoryEntity(
-        money = it.showAmount(),
+        amount = it.showAmount(),
         sourceAccountNumber = it.showSource(),
         targetAccountNumber = it.showTarget(),
         transferDate = it.showTransferDate()
@@ -53,7 +53,7 @@ private fun toTransferHistoryEntity(it: TransferHistory) =
 
 private fun fromTransferHistoryEntity(it: TransferHistoryEntity) =
     TransferHistory(
-        money = it.money,
+        money = it.amount,
         source = it.sourceAccountNumber,
         target = it.targetAccountNumber,
         transferDate = it.transferDate
