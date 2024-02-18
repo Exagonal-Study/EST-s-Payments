@@ -21,5 +21,4 @@ class AccountTransactionEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-) {
-}
+)

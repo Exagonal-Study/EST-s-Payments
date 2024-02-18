@@ -26,5 +26,4 @@ class TransferHistoryEntity(
     @Column(name = "transfer_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
-) {
-}
+)

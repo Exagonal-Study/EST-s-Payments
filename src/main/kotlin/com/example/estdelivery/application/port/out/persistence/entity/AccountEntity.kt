@@ -28,5 +28,4 @@ class AccountEntity(
     @Column(name = "account_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long?
-) {
-}
+)
