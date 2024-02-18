@@ -9,7 +9,7 @@ class Account(
     private val transactions: AccountTransactions,
     @field:PastOrPresent
     private val createdDate: LocalDateTime,
-    private val id: Long? = null
+    val id: Long? = null
 ) {
     fun balance(): Money {
         return transactions.balance()
@@ -39,4 +39,9 @@ class Account(
     fun withdraw(amount: Money, transactionTime: LocalDateTime) {
         transactions.withdraw(amount, transactionTime)
     }
+
+    fun showTransactions() = transactions.showTransactions()
+    fun showHistories() = transferHistories.showHistories()
+    fun showNumber() = number
+    fun showCreatedDate() = createdDate
 }

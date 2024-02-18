@@ -8,4 +8,8 @@ data class AccountTransaction(
     val type: TransactionType,
     @field:PastOrPresent
     val transactionDateTime: LocalDateTime,
-)
+) {
+    fun showAmount() = amount
+    fun showTransactionTime() = transactionDateTime
+    fun showType() = type
+}

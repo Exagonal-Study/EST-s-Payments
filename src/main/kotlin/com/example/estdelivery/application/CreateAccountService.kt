@@ -7,7 +7,9 @@ import com.example.estdelivery.application.port.out.GenerateAccountNumberPort
 import com.example.estdelivery.domain.Account
 import com.example.estdelivery.domain.AccountTransactions
 import com.example.estdelivery.domain.TransferHistories
+import org.springframework.stereotype.Service
 
+@Service
 class CreateAccountService(
     private val createAccountPort: CreateAccountPort,
     private val generateAccountNumber: GenerateAccountNumberPort,

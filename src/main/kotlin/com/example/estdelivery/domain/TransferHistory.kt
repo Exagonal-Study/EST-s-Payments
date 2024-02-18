@@ -10,6 +10,11 @@ data class TransferHistory(
     @field:PastOrPresent
     private val transferDate: LocalDateTime
 ) {
+    fun showAmount()= money
+    fun showSource() = source
+    fun showTarget() = target
+    fun showTransferDate() = transferDate
+
     init {
         require(source != target) { "출금 계좌와 입금 계좌는 같을 수 없습니다." }
     }

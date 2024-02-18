@@ -5,7 +5,9 @@ import com.example.estdelivery.application.port.`in`.command.DepositCommand
 import com.example.estdelivery.application.port.out.LoadAccountPort
 import com.example.estdelivery.application.port.out.UpdateAccountPort
 import com.example.estdelivery.domain.Deposit
+import org.springframework.stereotype.Service
 
+@Service
 class DepositService(
     private val loadAccountPort: LoadAccountPort,
     private val updateAccountPort: UpdateAccountPort

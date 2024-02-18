@@ -23,4 +23,8 @@ class AccountTransactions(
                 }
             }
     }
+
+    fun showTransactions(): List<AccountTransaction> {
+        return accountTransactions
+    }
 }
