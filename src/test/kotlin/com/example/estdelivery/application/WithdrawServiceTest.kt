@@ -6,8 +6,10 @@ import com.example.estdelivery.application.port.`in`.command.WithdrawCommand
 import com.example.estdelivery.application.port.out.LoadAccountPort
 import com.example.estdelivery.application.port.out.UpdateAccountPort
 import com.example.estdelivery.domain.AccountTransactions
+import com.example.estdelivery.domain.Money
 import com.example.estdelivery.moneyArbitraryBuilder
 import io.kotest.core.spec.style.FreeSpec
+import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -43,6 +45,6 @@ class WithdrawServiceTest : FreeSpec({
         withdrawService.withdraw(withdrawCommand)
 
         // then
-        verify(exactly = 1) { updateAccountPort.update(account) }
+        account.balance() shouldBe Money.ZERO
     }
 })

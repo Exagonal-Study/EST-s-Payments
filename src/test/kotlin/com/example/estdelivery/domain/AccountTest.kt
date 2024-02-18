@@ -4,6 +4,7 @@ import com.example.estdelivery.accountArbitraryBuilder
 import com.example.estdelivery.accountNumberArbitraryBuilder
 import com.example.estdelivery.transferHistoryArbitraryBuilder
 import io.kotest.assertions.throwables.shouldNotThrow
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.core.spec.style.FreeSpec
 
 
@@ -30,7 +31,7 @@ class AccountTest : FreeSpec({
         val 계좌_과거_이력 = transferHistories(내_계좌)
         for (i in 0..10) {
             "$i 번째 계좌를 생성한다." {
-                shouldNotThrow<IllegalArgumentException> {
+                shouldNotThrowAny {
                     accountArbitraryBuilder()
                         .set("number", 내_계좌)
                         .set("transferHistories", 계좌_과거_이력)

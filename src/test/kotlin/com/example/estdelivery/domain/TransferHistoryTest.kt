@@ -3,6 +3,7 @@ package com.example.estdelivery.domain
 import com.example.estdelivery.accountNumberArbitraryBuilder
 import com.example.estdelivery.moneyArbitraryBuilder
 import com.example.estdelivery.transferHistoryArbitraryBuilder
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.FreeSpec
 import java.time.LocalDateTime
@@ -11,7 +12,9 @@ class TransferHistoryTest : FreeSpec({
     "300번 중" - {
         for (i in 0..300) {
             "$i 번째 송금 내역을 생성한다." {
-                println(transferHistoryArbitraryBuilder().sample())
+                shouldNotThrowAny {
+                    transferHistoryArbitraryBuilder().sample()
+                }
             }
         }
     }

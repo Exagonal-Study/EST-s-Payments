@@ -14,6 +14,8 @@ import com.navercorp.fixturemonkey.api.introspector.ConstructorPropertiesArbitra
 import com.navercorp.fixturemonkey.jakarta.validation.plugin.JakartaValidationPlugin
 import com.navercorp.fixturemonkey.kotlin.KotlinPlugin
 import com.navercorp.fixturemonkey.kotlin.giveMeBuilder
+import net.jqwik.api.Arbitraries
+import java.time.LocalDateTime
 
 private val fixtureMonkey: FixtureMonkey = FixtureMonkey.builder()
     .objectIntrospector(ConstructorPropertiesArbitraryIntrospector.INSTANCE)
