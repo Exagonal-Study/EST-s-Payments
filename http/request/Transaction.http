@@ -1,0 +1,9 @@
+### 송금
+POST {{host}}/transactions
+Content-Type: application/json
+
+{
+  "senderAccountId": 1,
+  "receiverAccountId": 2,
+  "amount": 500
+}
