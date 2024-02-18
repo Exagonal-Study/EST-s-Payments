@@ -24,12 +24,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     runtimeOnly("com.h2database:h2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.junit.jupiter", "junit-jupiter", "5.8.2")
     testImplementation("org.assertj", "assertj-core", "3.22.0")
     testImplementation("io.kotest", "kotest-runner-junit5", "5.4.0")
+    testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter-kotlin:1.0.13")
+    testImplementation("com.navercorp.fixturemonkey:fixture-monkey-jakarta-validation:1.0.0")
+    testImplementation("io.mockk:mockk:1.13.9")
 }
 
 tasks.withType<KotlinCompile> {
