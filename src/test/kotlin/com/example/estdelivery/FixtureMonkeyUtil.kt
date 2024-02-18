@@ -1,6 +1,7 @@
 package com.example.estdelivery
 
 import com.example.estdelivery.application.port.`in`.command.CreateAccountCommand
+import com.example.estdelivery.application.port.`in`.command.DepositCommand
 import com.example.estdelivery.domain.Account
 import com.example.estdelivery.domain.AccountNumber
 import com.example.estdelivery.domain.AccountTransaction
@@ -28,3 +29,4 @@ fun transferHistoryArbitraryBuilder() = fixtureMonkey.giveMeBuilder<TransferHist
 fun transferHistoriesArbitraryBuilder() = fixtureMonkey.giveMeBuilder<TransferHistories>()
 fun accountTransactionArbitraryBuilder() = fixtureMonkey.giveMeBuilder<AccountTransaction>()
 fun accountTransactionsArbitraryBuilder() = fixtureMonkey.giveMeBuilder<AccountTransactions>()
+fun depositCommandArbitraryBuilder() = fixtureMonkey.giveMeBuilder<DepositCommand>()
