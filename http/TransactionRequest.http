@@ -1,0 +1,11 @@
+### 사용자 추가 API
+POST {{apiAddress}}/transactions
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "senderAccountId": 1,
+  "receiverId": 1,
+  "receiverAccountId": 2,
+  "amount": 1000
+}
