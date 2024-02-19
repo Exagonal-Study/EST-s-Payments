@@ -1,0 +1,7 @@
+### 계좌 등록 API
+POST {{apiAddress}}/accounts
+Content-Type: application/json
+
+{
+  "userId": 1
+}
